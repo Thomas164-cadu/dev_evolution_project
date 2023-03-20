@@ -11,4 +11,13 @@ module.exports = class Usuarios {
         }
     }
 
+    async login(req, res) {
+        try {
+            const usuario = await UsuarioService.login(req.body);
+            return res.status(200).json(usuario);
+        } catch (err) {
+            return res.status(500).json(err);
+        }
+    }
+
 }

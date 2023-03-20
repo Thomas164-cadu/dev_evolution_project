@@ -1,0 +1,18 @@
+.align-buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.align-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.link-cadastro{
+    text-decoration: none;
+    color: #fff;
+}
