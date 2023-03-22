@@ -52,7 +52,6 @@ module.exports = class Pedido {
     }
 
     async update(params, body) {
-        console.log(params, body);
         try {
             let valorTotal = 0;
             let precos = [];
