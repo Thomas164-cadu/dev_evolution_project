@@ -20,4 +20,13 @@ module.exports = class Usuarios {
         }
     }
 
+    async findUserByToken(req, res) {
+        try {
+            const usuario = await UsuarioService.findUserByToken(req.headers.authorization);
+            return res.status(200).json(usuario);
+        } catch (err) {
+            return res.status(500).json(err);
+        }
+    }
+
 }

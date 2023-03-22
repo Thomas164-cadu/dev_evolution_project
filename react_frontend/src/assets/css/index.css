@@ -1,0 +1,67 @@
+body{
+    background-color: #fdfcfc;
+}
+
+.formularioSystem{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.formularioElement{
+    margin: 5%;
+    text-align: center;
+}
+
+.formularioElementDoubleInput{
+    display: flex;
+}
+
+.inputFormulario{
+    width: 100%;
+    height: 100%;
+    margin: 2% !important;
+}
+
+.titleSystem{
+    text-align: center;
+    margin: 1%;
+}
+
+.bodySystem{
+    margin: 1%;
+}
+
+.controlTable{
+    display: block;
+    margin: 5% 15% 0% 15%;
+}
+
+.tableSystem{
+    width: 100%;
+    margin: 1%;
+}
+
+.headerTable{
+    font-weight: 600 !important;
+    font-size: 1em !important;
+}
+
+.formularioButton{
+    padding: 3% 10% 3% 10% !important;
+}
+
+.buttonsModal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    place-content: space-between;
+    margin: 2%;
+}
+
+.contentPedido{
+    margin: 5%;
+}

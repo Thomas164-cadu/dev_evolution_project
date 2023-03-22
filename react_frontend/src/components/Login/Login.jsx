@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useContext } from 'react';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
@@ -11,6 +11,8 @@ import { Row } from 'reactstrap';
 import '../../assets/css/autenticacao.css';
 import LogoDevIcon from '@mui/icons-material/LogoDev';
 import { Link } from 'react-router-dom';
+import StoreContext from '../Store/Context';
+import { useHistory } from 'react-router-dom';
 
 const theme = createTheme({
     palette: {
@@ -22,6 +24,9 @@ const theme = createTheme({
 });
 
 export default function SignInSide() {
+    const history = useHistory();
+    const { setToken } = useContext(StoreContext);
+
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
@@ -37,7 +42,10 @@ export default function SignInSide() {
             },
             body: JSON.stringify(login)
         }).then((response) => {
-            console.log(response);
+            response.json().then((data) => {
+                setToken(data)
+                return history.push('/');
+            });
         });
     };
 

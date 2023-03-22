@@ -1,0 +1,26 @@
+[
+    {
+        "nome": "Geladeira",
+        "preco": 1200
+    },
+    {
+        "nome": "Mesa",
+        "preco": 300
+    },
+    {
+        "nome": "Caqui",
+        "preco": 5
+    },
+    {
+        "nome": "Banana",
+        "preco": 3
+    },
+    {
+        "nome": "Maçã",
+        "preco": 5
+    },
+    {
+        "nome": "Whisky",
+        "preco": 105
+    }
+]
