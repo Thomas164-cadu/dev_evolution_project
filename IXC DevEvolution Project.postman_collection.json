@@ -1,0 +1,590 @@
+{
+	"info": {
+		"_postman_id": "1757f1f5-3b1f-42f4-b393-2cb2745a418b",
+		"name": "IXC DevEvolution Project",
+		"description": "Documentação contendo a explicação e execução de cada rota da API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22751326"
+	},
+	"item": [
+		{
+			"name": "Usuarios",
+			"item": [
+				{
+					"name": "Create Usuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"nome\",\r\n    \"email\": \"email@email.com\",\r\n    \"senha\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/usuarios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"usuarios"
+							]
+						},
+						"description": "Cadastro de usuário"
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"email@email.com\",\r\n    \"senha\":\"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"login"
+							]
+						},
+						"description": "Login - Gera o Token JWT usado por todas as outras rotas da aplicação"
+					},
+					"response": []
+				},
+				{
+					"name": "Busca Usuário a partir do token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDEyODQyNGRmZTJmMzM3YjRlNGY0ZTQiLCJpYXQiOjE2Nzk0NDE5NDZ9.ouuN6rhwuvkkpFs4-zTGt0mrDoi-uOpA8yx8x1ap4Ow",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/usuario",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"usuario"
+							]
+						},
+						"description": "Essa requisição não possui parâmetro e nem corpo, ela usa como base o Token JWT gerado no Login para encontrar o usuário correspondente"
+					},
+					"response": []
+				}
+			],
+			"description": "Rotas de Usuário, relacionadas a autenticação e requisições auxiliares"
+		},
+		{
+			"name": "Categorias",
+			"item": [
+				{
+					"name": "Create Categoria",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDEyODQyNGRmZTJmMzM3YjRlNGY0ZTQiLCJpYXQiOjE2Nzk0NDE5NDZ9.ouuN6rhwuvkkpFs4-zTGt0mrDoi-uOpA8yx8x1ap4Ow",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"categoria\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/categorias",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"categorias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Categorias",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDEyODQyNGRmZTJmMzM3YjRlNGY0ZTQiLCJpYXQiOjE2Nzk0NDE5NDZ9.ouuN6rhwuvkkpFs4-zTGt0mrDoi-uOpA8yx8x1ap4Ow",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/categorias",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"categorias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Categoria",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDEyODQyNGRmZTJmMzM3YjRlNGY0ZTQiLCJpYXQiOjE2Nzk0NDE5NDZ9.ouuN6rhwuvkkpFs4-zTGt0mrDoi-uOpA8yx8x1ap4Ow",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/categorias/641a4362a92cae45d2237e27",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"categorias",
+								"641a4362a92cae45d2237e27"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Categoria",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDEyODQyNGRmZTJmMzM3YjRlNGY0ZTQiLCJpYXQiOjE2Nzk0NDE5NDZ9.ouuN6rhwuvkkpFs4-zTGt0mrDoi-uOpA8yx8x1ap4Ow",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\":\"categoria\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/categorias/641a4362a92cae45d2237e27",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"categorias",
+								"641a4362a92cae45d2237e27"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "CRUD de categorias"
+		},
+		{
+			"name": "Produtos",
+			"item": [
+				{
+					"name": "Create Produto",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDEyODQyNGRmZTJmMzM3YjRlNGY0ZTQiLCJpYXQiOjE2Nzk0NDE5NDZ9.ouuN6rhwuvkkpFs4-zTGt0mrDoi-uOpA8yx8x1ap4Ow",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Fogão\",\r\n    \"preco\": 700,\r\n    \"categoria\": \"64191177bc85a6d6cd0e08cb\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/produtos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"produtos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Produtos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDEyODQyNGRmZTJmMzM3YjRlNGY0ZTQiLCJpYXQiOjE2Nzk0NDE5NDZ9.ouuN6rhwuvkkpFs4-zTGt0mrDoi-uOpA8yx8x1ap4Ow",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/produtos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"produtos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Produto",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDEyODQyNGRmZTJmMzM3YjRlNGY0ZTQiLCJpYXQiOjE2Nzk0NDE5NDZ9.ouuN6rhwuvkkpFs4-zTGt0mrDoi-uOpA8yx8x1ap4Ow",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/produtos/641919b2bc85a6d6cd0e08cf",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"produtos",
+								"641919b2bc85a6d6cd0e08cf"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Produto",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDEyODQyNGRmZTJmMzM3YjRlNGY0ZTQiLCJpYXQiOjE2Nzk0NDE5NDZ9.ouuN6rhwuvkkpFs4-zTGt0mrDoi-uOpA8yx8x1ap4Ow",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Microondas\",\r\n    \"preco\": 700\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/produtos/641a4362a92cae45d2237e27",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"produtos",
+								"641a4362a92cae45d2237e27"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Pordutos por Categoria",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDEyODQyNGRmZTJmMzM3YjRlNGY0ZTQiLCJpYXQiOjE2Nzk0NDE5NDZ9.ouuN6rhwuvkkpFs4-zTGt0mrDoi-uOpA8yx8x1ap4Ow",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/produtos/641a75c8aab2110e5029ac60",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"produtos",
+								"641a75c8aab2110e5029ac60"
+							]
+						},
+						"description": "Esta requisição se baseia no ID da categoria para listar os produtos, na Interface o sistema utiliza essa requisição para permitir a criação de pedidos"
+					},
+					"response": []
+				},
+				{
+					"name": "Gerar Produtos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDEyODQyNGRmZTJmMzM3YjRlNGY0ZTQiLCJpYXQiOjE2Nzk0NDE5NDZ9.ouuN6rhwuvkkpFs4-zTGt0mrDoi-uOpA8yx8x1ap4Ow",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/generate",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"generate"
+							]
+						},
+						"description": "Esta requisição pode ser acessada ao logar no sistema para gerar os produtos já com suas respectivas categorias de forma aleatória"
+					},
+					"response": []
+				}
+			],
+			"description": "CRUD de produtos com rotas específicas para ações extras"
+		},
+		{
+			"name": "Pedidos",
+			"item": [
+				{
+					"name": "Listar Pedidos por Usuário",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDEyODQyNGRmZTJmMzM3YjRlNGY0ZTQiLCJpYXQiOjE2Nzk0NDE5NDZ9.ouuN6rhwuvkkpFs4-zTGt0mrDoi-uOpA8yx8x1ap4Ow",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/pedidos/641a618c40ccdfe3e05cf9ad",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"pedidos",
+								"641a618c40ccdfe3e05cf9ad"
+							]
+						},
+						"description": "Os pedidos sempre pertencem a um usuário, por isso a listagem é direcional"
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar Pedido",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDEyODQyNGRmZTJmMzM3YjRlNGY0ZTQiLCJpYXQiOjE2Nzk0NDE5NDZ9.ouuN6rhwuvkkpFs4-zTGt0mrDoi-uOpA8yx8x1ap4Ow",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/pedidos/641a618c40ccdfe3e05cf9ad",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"pedidos",
+								"641a618c40ccdfe3e05cf9ad"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Pedido",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDEyODQyNGRmZTJmMzM3YjRlNGY0ZTQiLCJpYXQiOjE2Nzk0NDE5NDZ9.ouuN6rhwuvkkpFs4-zTGt0mrDoi-uOpA8yx8x1ap4Ow",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"usuario\": \"user._id\",\r\n    \"produtos\": [],\r\n    \"categoria\": \"id da categoria\",\r\n    \"idCategoria\": \"idCategoria\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/pedidos",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"pedidos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Pedido",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDEyODQyNGRmZTJmMzM3YjRlNGY0ZTQiLCJpYXQiOjE2Nzk0NDE5NDZ9.ouuN6rhwuvkkpFs4-zTGt0mrDoi-uOpA8yx8x1ap4Ow",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"usuario\": \"64128424dfe2f337b4e4f4e4\",\r\n    \"produtos\": [],\r\n    \"categoria\": \"nome da categoria\",\r\n    \"idCategoria\":\"641a75c8aab2110e5029ac5f\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/pedidos/641a67accc57863b4efa67ed",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"pedidos",
+								"641a67accc57863b4efa67ed"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "CRUD de pedidos"
+		}
+	]
+}
